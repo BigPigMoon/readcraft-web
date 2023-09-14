@@ -5,13 +5,15 @@ import {WordsPageComponent} from './pages/words-page/words-page.component';
 import {LibraryPageComponent} from './pages/library-page/library-page.component';
 import {StatisticsPageComponent} from './pages/statistics-page/statistics-page.component';
 import {BookPageComponent} from "./pages/book-page/book-page.component";
+import {ReaderPageComponent} from "./pages/reader-page/reader-page.component";
 
 const routes: Routes = [
   {path: '', component: CardsPageComponent},
   {path: 'words', component: WordsPageComponent},
   {path: 'library', component: LibraryPageComponent},
   {path: 'statistic', component: StatisticsPageComponent},
-  {path: 'book/:id', component: BookPageComponent}
+  {path: 'book/:id', component: BookPageComponent},
+  {path: 'book/:id/reader', component: ReaderPageComponent,},
 ];
 
 @NgModule({

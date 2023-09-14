@@ -15,10 +15,11 @@ import {LibraryPageComponent} from './pages/library-page/library-page.component'
 import {CardsPageComponent} from './pages/cards-page/cards-page.component';
 import {BookCardComponent} from './components/book-card/book-card.component';
 import {NgOptimizedImage} from "@angular/common";
-import { SerachbarComponent } from './components/serachbar/serachbar.component';
-import { WordCardComponent } from './components/word-card/word-card.component';
-import { BookPageComponent } from './pages/book-page/book-page.component';
-import { ReaderPageComponent } from './pages/reader-page/reader-page.component';
+import {SerachbarComponent} from './components/serachbar/serachbar.component';
+import {WordCardComponent} from './components/word-card/word-card.component';
+import {BookPageComponent} from './pages/book-page/book-page.component';
+import {ReaderPageComponent} from './pages/reader-page/reader-page.component';
+import {NavigationWrapperComponent} from './components/navigation-wrapper/navigation-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ReaderPageComponent } from './pages/reader-page/reader-page.component';
     WordCardComponent,
     BookPageComponent,
     ReaderPageComponent,
+    NavigationWrapperComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage],
   providers: [],

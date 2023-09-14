@@ -1,11 +1,13 @@
-<div class="flex flex-col mx-8 space-y-3">
-  <button class="btn btn-primary w-fit self-end mr-10">Добавить книгу</button>
-  <div class="card p-3 bg-base-200 shadow-md">
-    <app-serachbar class="flex-grow w-full"></app-serachbar>
+<app-navigation-wrapper>
+  <div class="flex flex-col mx-8 space-y-3">
+    <button class="btn btn-primary w-fit self-end mr-10">Добавить книгу</button>
+    <div class="card p-3 bg-base-200 shadow-md">
+      <app-serachbar class="flex-grow w-full"></app-serachbar>
+    </div>
   </div>
-</div>
-<div class="flex justify-items-center w-full">
-  <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-    <app-book-card *ngFor="let book of books" [book]="book"></app-book-card>
+  <div class="flex justify-items-center w-full">
+    <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <app-book-card *ngFor="let book of books" [book]="book"></app-book-card>
+    </div>
   </div>
-</div>
+</app-navigation-wrapper>
