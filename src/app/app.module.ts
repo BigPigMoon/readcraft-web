@@ -21,6 +21,8 @@ import {BookPageComponent} from './pages/book-page/book-page.component';
 import {ReaderPageComponent} from './pages/reader-page/reader-page.component';
 import {NavigationWrapperComponent} from './components/navigation-wrapper/navigation-wrapper.component';
 import {FormsModule} from "@angular/forms";
+import { ReaderTextComponent } from './components/reader-text/reader-text.component';
+import { ReaderWordComponent } from './components/reader-word/reader-word.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import {FormsModule} from "@angular/forms";
     BookPageComponent,
     ReaderPageComponent,
     NavigationWrapperComponent,
+    ReaderTextComponent,
+    ReaderWordComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage, FormsModule],
   providers: [],

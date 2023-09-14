@@ -1,0 +1,9 @@
+<p *ngIf="format === 'p'" class="indent-8">
+  <app-reader-word *ngFor="let word of content.split(' ')">{{word}}</app-reader-word>
+</p>
+<h2 *ngIf="format === 'h1'" class="text-5xl font-bold text-center my-7">
+  <app-reader-word *ngFor="let word of content.split(' ')">{{word}}</app-reader-word>
+</h2>
+<h3 *ngIf="format === 'h2'" class="text-3xl font-bold text-center my-4">
+  <app-reader-word *ngFor="let word of content.split(' ')">{{word}}</app-reader-word>
+</h3>
