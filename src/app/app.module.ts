@@ -20,6 +20,7 @@ import {WordCardComponent} from './components/word-card/word-card.component';
 import {BookPageComponent} from './pages/book-page/book-page.component';
 import {ReaderPageComponent} from './pages/reader-page/reader-page.component';
 import {NavigationWrapperComponent} from './components/navigation-wrapper/navigation-wrapper.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import {NavigationWrapperComponent} from './components/navigation-wrapper/naviga
     ReaderPageComponent,
     NavigationWrapperComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

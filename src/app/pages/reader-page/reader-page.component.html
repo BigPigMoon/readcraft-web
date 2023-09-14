@@ -1,1 +1,166 @@
-<p>reader-page works!</p>
+<nav class="flex justify-center w-full">
+  <div class="navbar w-5/6 h-20">
+    <div class="navbar-start">
+      <a class="btn" routerLink="/book/1">
+        <svg class="h-8 w-8 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+             viewBox="0 0 24 24">
+          <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path>
+        </svg>
+        Назад
+      </a>
+    </div>
+    <div class="navbar-center">Ведьмак последнее желание</div>
+    <div class="navbar-end">
+      <label class="swap swap-rotate w-20 h-20">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox"/>
+        <!-- sun icon -->
+        <svg class="swap-on fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/>
+        </svg>
+        <!-- moon icon -->
+        <svg class="swap-off fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path
+            d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/>
+        </svg>
+      </label>
+      <details class="dropdown dropdown-left">
+        <summary class="m-1 btn normal-case font-bold text-xl">Aa</summary>
+        <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-200 rounded-box">
+          <div class="flex flex-row w-full justify-center items-center space-x-3">
+            <p class="font-bold text-xl">A</p>
+            <input type="radio" name="radio-1" class="radio"
+                   [checked]="!selectedFontSize" (click)="selectFontSize(false)"/>
+            <input type="radio" name="radio-1" class="radio"
+                   [checked]="selectedFontSize" (click)="selectFontSize(true)"/>
+            <p class="font-bold text-4xl">A</p>
+          </div>
+          <div class="w-full h-fit flex flex-row m-4 space-x-4 items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                 stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+            </svg>
+            <button class="btn btn-error btn-sm" (click)="decrementLineHeight()">-</button>
+            <p class="text-lg">{{lineHeight}}</p>
+            <button class="btn btn-success btn-sm" (click)="incrementLineHeight()">+</button>
+          </div>
+          <div class="flex flex-row space-x-4">
+            <button class="btn btn-ghost" (click)="setTextAlignment('left')">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                   stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12"/>
+              </svg>
+            </button>
+            <button class="btn btn-ghost" (click)="setTextAlignment('center')">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                   stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"/>
+              </svg>
+            </button>
+            <button class="btn btn-ghost" (click)="setTextAlignment('right')">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                   stroke="currentColor"
+                   class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M12 17.25h8.25"/>
+              </svg>
+            </button>
+          </div>
+          <div class="w-full py-4 px-1">
+            <select class="select select-bordered w-full" [(ngModel)]="fontFamily" (change)="setFontFamily()">
+              <option value="playfairDisplay" [selected]="fontFamily === 'playfairDisplay'">Playfair Display</option>
+              <option value="yesevaOne" [selected]="fontFamily === 'yesevaOne'">Yeseva One</option>
+              <option value="forum" [selected]="fontFamily === 'forum'">Forum</option>
+            </select>
+          </div>
+        </ul>
+      </details>
+    </div>
+  </div>
+</nav>
+<div>
+  <div class="h-full w-24 fixed left-0 flex justify-center items-center transition-opacity opacity-0 hover:opacity-100">
+    <svg class="h-24 w-24 fill-current mb-48" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+         viewBox="0 0 24 24">
+      <path d="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"></path>
+    </svg>
+  </div>
+  <div
+    class="h-full w-24 fixed right-0 flex justify-center items-center transition-opacity opacity-0 hover:opacity-100">
+    <svg class="h-24 w-24 mb-48 fill-current" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+         viewBox="0 0 24 24">
+      <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"></path>
+    </svg>
+  </div>
+</div>
+<div class="fixed top-24 bottom-24 left-28 right-28">
+  <div class="overflow-hidden w-full h-full">
+    <div #scrollElement
+         class="columns-2 gap-32 h-full"
+         [ngClass]="{
+           'text-lg': !selectedFontSize,
+           'text-2xl': selectedFontSize,
+
+           'leading-none': lineHeight === 1,
+           'leading-normal': lineHeight === 1.5,
+           'leading-loose': lineHeight === 2,
+
+           'text-left': textAlignment === 'left',
+           'text-justify': textAlignment === 'center',
+           'text-right': textAlignment === 'right',
+
+           'font-playfairDisplay': fontFamily === 'playfairDisplay',
+           'font-yesevaOne': fontFamily === 'yesevaOne',
+           'font-forum': fontFamily === 'forum',
+         }"
+         style="column-fill: auto; transform: translate3d(-0px, 0px, 0px);"
+    >
+      <p class="indent-8">
+        «Га́дкие ле́беди» (в части публикаций «Вре́мя дождя́») — повесть братьев Стругацких 1967 года, трактуемая
+        авторами как «реалистическая фантастика». Первоначально должна была выйти в сборнике издательства «Молодая
+        гвардия» в 1968 году, но не прошла цензуру. С того же года машинописи, подаваемые в редакции периодических
+        изданий, попали в «самиздат» и активно распространялись.
+      </p>
+      <p class="indent-8">
+        Действие разворачивается в неизвестной стране. Модный писатель Виктор Банев оказывается в городе своего детства
+        фактически в ссылке, поскольку лично господином Президентом ему предложено «перестать бренчать». В этом городе
+        проживают бывшая жена Банева и их дочь-подросток. Обывателей беспокоит, что их детей отчуждают от родителей
+        «мокрецы». Про этих существ в масках говорят, что они генетически больны (и при этом их курируют военные), а
+        также что именно они устроили дождь, не прекращающийся уже много лет подряд. Банев в основном занят выпивкой и
+        много рассуждает о ценности творчества, пытаясь при этом разобраться, что же происходит в таинственном городе. В
+        финале писатель оказывается свидетелем конца старого мира и наступления нового: все дети ушли к «мокрецам».
+        После этого спиртное и наркотики обращаются в родниковую воду, рушатся бетонные крепости и ржавеет оружие.
+        Рассеиваются тучи, и в солнечном ярком новом мире дети мгновенно становятся взрослыми. Банев счастлив увидеть
+        всё это, но новый мир не принадлежит ему, и он должен «не забыть вернуться»[2].
+      </p>
+      <p class="indent-8">
+        В 1972 году повесть без ведома авторов была опубликована в ФРГ издательством «Посев». В СССР в сокращении
+        впервые увидела свет в 1986 году — в журнале «Изобретатель и рационализатор» (№ 9 и 10). Вариант текста под
+        названием «Время дождя» увидел свет в 1987 году в журнале «Даугава», и в 1988—1989 годах в журнале «Природа и
+        человек». Параллельно текст повести был включён в роман «Хромая судьба», издание которого вышло в 1989 году.
+        Книжные издания «Гадких лебедей» выходили в 1991 году в Москве (сборник научной фантастики № 34 издательства
+        «Знание») и в Таллине. «Гадкие лебеди» неоднократно переиздавались как в составе романа «Хромая судьба», так и
+        отдельным текстом. В 33-томном полном собрании сочинений Стругацких отдельный текст «Гадких лебедей» с
+        вариантами рукописных версий и комментарием был помещён в 11-й том, будучи включённым в контекст творчества
+        Стругацких второй половины 1960-х годов.
+      </p>
+      <p class="indent-8">
+        Запоздавшая публикация не снизила интереса критиков и литературоведов к повести. В перестроечные годы были
+        распространены упрощённо-политизированные трактовки текста как описания судьбы творца в тоталитарном обществе,
+        причём прототипом Виктора Банева считался Владимир Высоцкий. В понимании философов и социологов, таких как В. В.
+        Сербиненко или Б. В. Межуев, «Гадкие лебеди» диагностируют переходный период развития Стругацких как социальных
+        мыслителей, когда они приступили к радикальному пересмотру коммунистической утопии и разработке своей базовой
+        концепции раскола человечества на элиту и большинство, сопряжённую с пессимизмом относительно светлого будущего,
+        которое «создаётся тобой, но не для тебя».
+      </p>
+      <p class="indent-8">
+        В 1986 году Стругацкие сотрудничали с кинорежиссёром К. Лопушанским, написав для него сценарий по мотивам
+        повести, названный «Туча». Отвергнутый режиссёром и 1-м творческим объединением киностудии «Ленфильм», сценарий
+        в 1987 году был опубликован как самостоятельное произведение. Фильм «Гадкие лебеди», поставленный К. Лопушанским
+        в 2006 году, получил сдержанную или негативную оценку критиков и не имел успеха в прокате. Борис Стругацкий не
+        принимал участия в этом проекте.
+      </p>
+    </div>
+  </div>
+</div>
