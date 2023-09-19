@@ -11,6 +11,7 @@ import {
 import {KeyboardServiceService} from "../../services/keyboard-service.service";
 import {Subscription} from "rxjs";
 import {ReaderSettingsService} from "../../services/reader-settings.service";
+import {ReaderService} from "../../services/reader.service";
 
 @Component({
   selector: 'app-reader-page',
@@ -46,7 +47,7 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
     },
     {
       format: 'h2',
-      content: 'Background and writing\n'
+      content: 'Background and writing'
     },
     {
       format: 'p',
@@ -68,36 +69,38 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
     private renderer: Renderer2,
     private keyboardService: KeyboardServiceService,
     private settings: ReaderSettingsService,
+    private reader: ReaderService
   ) {
     this.keyDown = this.keyDown.bind(this);
     this.selectedFontSize = settings.getLargeFont();
     this.lineHeight = settings.getLineHeight();
     this.textAlignment = settings.getTextAlignment();
     this.fontFamily = settings.getFontFamily();
+
+    reader.page$.subscribe((value) => {
+      this.page = value;
+    })
   }
 
   // ---------- page controller -----------
 
   keyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowRight') {
-      this.pageIncrement();
+      this.pageIncrement()
     }
 
     if (event.key === 'ArrowLeft') {
-      this.pageDecrement();
+      this.reader.decrement();
     }
   }
 
   pageIncrement() {
-    this.page++;
+    this.reader.increment();
     this.renderer.setStyle(this.scrollElement.nativeElement, 'transform', `translate3d(-${this.pageWidth * this.page}px, 0px, 0px)`);
   }
 
   pageDecrement() {
-    this.page--;
-    if (this.page < 0) {
-      this.page = 0;
-    }
+    this.reader.decrement();
     this.renderer.setStyle(this.scrollElement.nativeElement, 'transform', `translate3d(-${this.pageWidth * this.page}px, 0px, 0px)`);
   }
 
@@ -111,7 +114,7 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   reloadScrollComponent() {
-    // TODO: find better way to reload componetn
+    // TODO: find better way to reload component
     window.location.reload();
   }
 

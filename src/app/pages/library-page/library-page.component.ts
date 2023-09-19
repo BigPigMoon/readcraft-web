@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {IBook} from "../../models/Book";
+import {IBook} from "../../models/book";
 
 @Component({
   selector: 'app-library-page',

@@ -107,7 +107,7 @@
   </div>
 </div>
 
-<div class="fixed top-24 bottom-24 left-28 right-28">
+<div class="fixed top-24 bottom-24 left-28 right-28 z-[3]">
   <div class="overflow-hidden w-full h-full">
     <div #scrollElement
          class="columns-2 gap-32 h-full"
@@ -130,7 +130,8 @@
          style="column-fill: auto; transform: translate3d(-0px, 0px, 0px);"
     >
       <app-reader-text
-        *ngFor="let fragment of bookData" [content]="fragment.content"
+        *ngFor="let fragment of bookData"
+        [content]="fragment.content"
         [format]="fragment.format"
       >
       </app-reader-text>

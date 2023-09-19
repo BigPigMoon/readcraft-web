@@ -1,3 +1,37 @@
-<button #contentWrapper class="hover:bg-base-content hover:bg-opacity-40 px-1.5 rounded" (click)="translate()">
-  <ng-content></ng-content>
+<button
+  #word
+  class="dropdown"
+  [ngClass]="{
+    'dropdown-right': posOnScreen === 0,
+    'dropdown-left': posOnScreen === 1,
+    'dropdown-right dropdown-end': posOnScreen === 2,
+    'dropdown-left dropdown-end': posOnScreen === 3,
+  }"
+>
+  <span
+    #contentWrapper
+    tabindex="0"
+    class="hover:bg-base-content hover:bg-opacity-40 px-1.5 rounded"
+    (click)="translate()"
+  >
+    <ng-content></ng-content>
+  </span>
+  <div
+    class="card fixed dropdown-content z-[4] w-96 shadow bg-primary text-primary-content"
+    tabindex="0"
+  >
+    <div class="card-body font-normal text-md font-sans text-start overflow-hidden h-full">
+      <div *ngFor="let variant of translateData">
+        <div *ngIf="variant.featured">
+          <div class="flex flex-row space-x-3 w-full">
+            <h2 class="card-title">{{variant.text}}</h2>
+            <p>{{variant.pos}}</p>
+          </div>
+          <div *ngFor="let transl of variant.translations">
+            <p *ngIf="transl.featured">{{transl.text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </button>
