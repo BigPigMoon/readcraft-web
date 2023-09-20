@@ -9,7 +9,7 @@ import {
   HostListener, ChangeDetectorRef
 } from '@angular/core';
 import {KeyboardServiceService} from "../../services/keyboard-service.service";
-import {Subscription} from "rxjs";
+import {Subscription, take, timer} from "rxjs";
 import {ReaderSettingsService} from "../../services/reader-settings.service";
 import {ReaderService} from "../../services/reader.service";
 
@@ -72,6 +72,7 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
     private reader: ReaderService
   ) {
     this.keyDown = this.keyDown.bind(this);
+
     this.selectedFontSize = settings.getLargeFont();
     this.lineHeight = settings.getLineHeight();
     this.textAlignment = settings.getTextAlignment();
@@ -86,11 +87,11 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
 
   keyDown(event: KeyboardEvent) {
     if (event.key === 'ArrowRight') {
-      this.pageIncrement()
+      this.pageIncrement();
     }
 
     if (event.key === 'ArrowLeft') {
-      this.reader.decrement();
+      this.pageDecrement();
     }
   }
 

@@ -1,6 +1,6 @@
-import {Translations} from "../models/translation";
+import {TranslatedWords} from "../models/translation";
 
-export const data: Translations = [
+export const data: TranslatedWords = [
   {
     "featured": true,
     "text": "board",

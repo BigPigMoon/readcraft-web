@@ -17,21 +17,47 @@
     <ng-content></ng-content>
   </span>
   <div
-    class="card fixed dropdown-content z-[4] w-96 shadow bg-primary text-primary-content"
+    class="card fixed dropdown-content z-[4] w-96 max-h-96 shadow bg-primary text-primary-content"
+    *ngIf="!cardPosLoading"
     tabindex="0"
   >
-    <div class="card-body font-normal text-md font-sans text-start overflow-hidden h-full">
+    <div class="card-body font-normal text-base font-sans text-start overflow-auto py-4">
       <div *ngFor="let variant of translateData">
-        <div *ngIf="variant.featured">
-          <div class="flex flex-row space-x-3 w-full">
-            <h2 class="card-title">{{variant.text}}</h2>
-            <p>{{variant.pos}}</p>
+        <div class="flex flex-row space-x-3 w-full text-base">
+          <h2 class="card-title">{{variant.text}}</h2>
+          <p>{{variant.pos}}</p>
+        </div>
+        <div
+          *ngFor="let transl of variant.translations | featureFilter: true"
+          [ngClass]="transl.examples.length !== 0 ? 'collapse collapse-arrow' : 'hover:cursor-default'"
+        >
+          <input type="checkbox" *ngIf="transl.examples.length !== 0"/>
+          <div class="collapse-title">
+            <p>{{transl.text}}</p>
           </div>
-          <div *ngFor="let transl of variant.translations">
-            <p *ngIf="transl.featured">{{transl.text}}</p>
+          <div class="collapse-content">
+            <div *ngFor="let exam of transl.examples" class="ml-4 my-3 flex flex-col space-y-2">
+              <p class="font-bold">{{exam.src}}</p>
+              <p>{{exam.dst}}</p>
+            </div>
           </div>
         </div>
+        <div *ngIf="variant.translations | featureFilter: false as lessCommon">
+          <div *ngIf="lessCommon.length !== 0" class="inline-block whitespace-normal">
+            <span class="text-sm font-bold">Редко используемые: </span>
+            <span
+              class="text-sm"
+              *ngFor="let transl of lessCommon; let last = last"
+            >
+              {{transl.text}}{{last ? '' : ','}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card-actions justify-end">
+        <button class="btn">Создать карточку</button>
       </div>
     </div>
   </div>
 </button>
+

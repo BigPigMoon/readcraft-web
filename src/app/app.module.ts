@@ -23,6 +23,7 @@ import {NavigationWrapperComponent} from './components/navigation-wrapper/naviga
 import {FormsModule} from "@angular/forms";
 import { ReaderTextComponent } from './components/reader-text/reader-text.component';
 import { ReaderWordComponent } from './components/reader-word/reader-word.component';
+import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { ReaderWordComponent } from './components/reader-word/reader-word.compon
     NavigationWrapperComponent,
     ReaderTextComponent,
     ReaderWordComponent,
+    FeatureFilterPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage, FormsModule],
   providers: [],

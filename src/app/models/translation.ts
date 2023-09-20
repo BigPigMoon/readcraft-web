@@ -1,4 +1,4 @@
-export type Translations = Variant[];
+export type TranslatedWords = Variant[];
 
 export interface Variant {
   featured: boolean

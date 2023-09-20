@@ -1,14 +1,11 @@
 import {
   Component,
   ElementRef,
-  Inject,
   Input,
-  Renderer2,
   ViewChild,
 } from '@angular/core';
 import {TranslatorService} from '../../services/translator.service';
-import {Translations} from '../../models/translation';
-import {DOCUMENT} from '@angular/common';
+import {TranslatedWords} from '../../models/translation';
 import {ReaderService} from "../../services/reader.service";
 
 enum OnScreenDirection {
@@ -28,9 +25,10 @@ export class ReaderWordComponent {
   @ViewChild('word') word: ElementRef;
   @Input() index: number;
 
-  translateData: Translations;
+  translateData: TranslatedWords;
   posOnScreen: OnScreenDirection;
   translatingLoading = true;
+  cardPosLoading = true;
   page: number;
 
   constructor(private translator: TranslatorService, private reader: ReaderService) {
@@ -41,7 +39,11 @@ export class ReaderWordComponent {
 
   translate() {
     this.translatingLoading = true;
+    this.cardPosLoading = true;
+
     this.posOnScreen = this.getScreenPos();
+
+    this.cardPosLoading = false;
 
     const word = this.contentWrapper.nativeElement.innerText;
     this.translator.translate(word).subscribe((ret) => {
