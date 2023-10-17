@@ -38,10 +38,10 @@
       </div>
       <div class="h-full bg-base-100 rounded-xl overflow-y-auto p-3 space-y-1">
         <div class="flex flex-wrap">
-          <app-word-card></app-word-card>
-          <app-word-card></app-word-card>
-          <app-word-card></app-word-card>
-          <app-word-card></app-word-card>
+          <app-word-card [index]="'wordcard-1'" [isGroup]="true">один</app-word-card>
+          <app-word-card [index]="'wordcard-2'" [isGroup]="true">два</app-word-card>
+          <app-word-card [index]="'wordcard-3'">три</app-word-card>
+          <app-word-card [index]="'wordcard-4'">четыре</app-word-card>
         </div>
       </div>
       <button class="w-full btn btn-primary">Учить эту группу</button>

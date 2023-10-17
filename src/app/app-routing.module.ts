@@ -6,6 +6,7 @@ import {LibraryPageComponent} from './pages/library-page/library-page.component'
 import {StatisticsPageComponent} from './pages/statistics-page/statistics-page.component';
 import {BookPageComponent} from "./pages/book-page/book-page.component";
 import {ReaderPageComponent} from "./pages/reader-page/reader-page.component";
+import {TestPageComponent} from "./pages/test-page/test-page.component";
 
 const routes: Routes = [
   {path: '', component: CardsPageComponent},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'statistic', component: StatisticsPageComponent},
   {path: 'book/:id', component: BookPageComponent},
   {path: 'book/:id/reader', component: ReaderPageComponent,},
+  {path: 'test', component: TestPageComponent}
 ];
 
 @NgModule({

@@ -23,6 +23,7 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
   private page = 0;
   private pageWidth: number;
 
+  themeSwitcher: string;
   selectedFontSize: boolean;
   lineHeight: number;
   textAlignment: string;
@@ -77,11 +78,13 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
     this.lineHeight = settings.getLineHeight();
     this.textAlignment = settings.getTextAlignment();
     this.fontFamily = settings.getFontFamily();
+    this.themeSwitcher = settings.getTheme();
 
     reader.page$.subscribe((value) => {
       this.page = value;
     })
   }
+
 
   // ---------- page controller -----------
 
@@ -106,6 +109,15 @@ export class ReaderPageComponent implements AfterViewInit, OnDestroy, OnInit {
   }
 
   // ---------- page controller -----------
+
+  // ---------- theme switcher -----------
+
+  switchTheme(event: any) {
+    this.themeSwitcher = this.themeSwitcher === 'light' ? 'dark' : 'light';
+    this.settings.setTheme(this.themeSwitcher);
+  }
+
+  // ---------- theme switcher -----------
 
   // ---------- select font size -----------
 

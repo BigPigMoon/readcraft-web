@@ -15,9 +15,9 @@ export class TranslatorService {
   }
 
   translate(word: string): Observable<TranslatedWords> {
-    // return new Observable<TranslatedWords>((subs) => {
-    //   subs.next(data);
-    // });
+    return new Observable<TranslatedWords>((subs) => {
+      subs.next(data);
+    });
     return this.http
       .get<TranslatedWords>(`http://${this.api_url}/api/v2/translations`, {
         params: {

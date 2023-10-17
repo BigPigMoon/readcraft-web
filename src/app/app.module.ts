@@ -24,6 +24,7 @@ import {FormsModule} from "@angular/forms";
 import { ReaderTextComponent } from './components/reader-text/reader-text.component';
 import { ReaderWordComponent } from './components/reader-word/reader-word.component';
 import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
+import { TestPageComponent } from './pages/test-page/test-page.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
     ReaderTextComponent,
     ReaderWordComponent,
     FeatureFilterPipe,
+    TestPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, NgOptimizedImage, FormsModule],
   providers: [],

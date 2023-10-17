@@ -53,4 +53,21 @@ export class ReaderSettingsService {
   setFontFamily(family: string) {
     localStorage.setItem('fontFamily', family);
   }
+
+  getTheme(): string {
+    const ret = localStorage.getItem('readerTheme');
+    if (!ret) {
+      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      } else {
+        return 'light';
+      }
+    }
+
+    return ret;
+  }
+
+  setTheme(theme: string) {
+    localStorage.setItem('readerTheme', theme);
+  }
 }

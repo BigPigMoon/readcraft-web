@@ -1,12 +1,7 @@
-import {
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
-import {TranslatorService} from '../../services/translator.service';
-import {TranslatedWords} from '../../models/translation';
-import {ReaderService} from "../../services/reader.service";
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { TranslatorService } from '../../services/translator.service';
+import { TranslatedWords } from '../../models/translation';
+import { ReaderService } from '../../services/reader.service';
 
 enum OnScreenDirection {
   topLeft,
@@ -31,10 +26,13 @@ export class ReaderWordComponent {
   cardPosLoading = true;
   page: number;
 
-  constructor(private translator: TranslatorService, private reader: ReaderService) {
+  constructor(
+    private translator: TranslatorService,
+    private reader: ReaderService
+  ) {
     this.reader.page$.subscribe((value) => {
       this.page = value;
-    })
+    });
   }
 
   translate() {
@@ -59,7 +57,8 @@ export class ReaderWordComponent {
         .parentElement;
 
     const topPos = element.offsetTop;
-    const leftPos = element.offsetLeft - this.page * (readerWindow.offsetWidth + 128);
+    const leftPos =
+      element.offsetLeft - this.page * (readerWindow.offsetWidth + 128);
 
     const halfWinWidth = readerWindow.offsetWidth / 2;
     const halfWinHeight = readerWindow.offsetHeight / 2;
