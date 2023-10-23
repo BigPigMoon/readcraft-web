@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {data} from 'src/app/data/translation.data';
 import {HttpClient} from '@angular/common/http';
 import {TranslatedWords} from '../models/translation';
-import {Observable, retry} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
