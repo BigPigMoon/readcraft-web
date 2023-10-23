@@ -5,8 +5,12 @@ import { LibraryPageComponent } from './pages/library-page/library-page.componen
 import { BookPageComponent } from './pages/book-page/book-page.component';
 import { ReaderPageComponent } from './pages/reader-page/reader-page.component';
 import { GraphPageComponent } from './pages/graph-page/graph-page.component';
+import { SigninPageComponent } from './pages/signin-page/signin-page.component';
+import { SignupPageComponent } from './pages/signup-page/signup-page.component';
 
 const routes: Routes = [
+  { path: 'sign-in', component: SigninPageComponent },
+  { path: 'sign-up', component: SignupPageComponent },
   { path: '', component: CardsPageComponent },
   { path: 'words', component: GraphPageComponent },
   { path: 'library', component: LibraryPageComponent },

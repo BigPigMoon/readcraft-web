@@ -18,7 +18,7 @@ import { WordCardComponent } from './components/word-card/word-card.component';
 import { BookPageComponent } from './pages/book-page/book-page.component';
 import { ReaderPageComponent } from './pages/reader-page/reader-page.component';
 import { NavigationWrapperComponent } from './components/navigation-wrapper/navigation-wrapper.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReaderTextComponent } from './components/reader-text/reader-text.component';
 import { ReaderWordComponent } from './components/reader-word/reader-word.component';
 import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
@@ -51,6 +51,7 @@ import { GraphPageComponent } from './pages/graph-page/graph-page.component';
     HttpClientModule,
     NgOptimizedImage,
     FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
