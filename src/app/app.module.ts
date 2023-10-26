@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -23,6 +23,9 @@ import { ReaderTextComponent } from './components/reader-text/reader-text.compon
 import { ReaderWordComponent } from './components/reader-word/reader-word.component';
 import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
 import { GraphPageComponent } from './pages/graph-page/graph-page.component';
+import { AuthGuard } from './guards/auth.guard';
+import { JwtModule } from '@auth0/angular-jwt';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,8 +55,18 @@ import { GraphPageComponent } from './pages/graph-page/graph-page.component';
     NgOptimizedImage,
     FormsModule,
     ReactiveFormsModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return localStorage.getItem('accessToken');
+        },
+      },
+    }),
   ],
-  providers: [],
+  providers: [
+    AuthGuard,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -6,6 +6,10 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
+import { UserSignUp } from 'src/app/models';
+import { AuthService } from 'src/app/services/auth.service';
+import { JwtService } from 'src/app/services/jwt.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -15,7 +19,12 @@ import {
 export class SignupPageComponent {
   regForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private jwtService: JwtService,
+    private router: Router,
+  ) {}
 
   allFieldsRequiredValidator(group: FormGroup): ValidationErrors | null {
     const isInvalid = Object.keys(group.controls).some((controlName) => {
@@ -37,11 +46,20 @@ export class SignupPageComponent {
         password: new FormControl('', [Validators.required]),
         passwordRep: new FormControl('', [Validators.required]),
       },
-      { validator: this.allFieldsRequiredValidator }
+      { validator: this.allFieldsRequiredValidator },
     );
   }
 
-  onLogin() {
-    console.log(this.regForm.value);
+  onSubmit() {
+    const user: UserSignUp = {
+      password: this.regForm.value.password,
+      email: this.regForm.value.email,
+      name: this.regForm.value.name,
+    };
+
+    this.authService.signUp(user).subscribe((ret) => {
+      this.jwtService.setTokens(ret);
+      this.router.navigate(['/']);
+    });
   }
 }

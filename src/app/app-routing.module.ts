@@ -7,15 +7,24 @@ import { ReaderPageComponent } from './pages/reader-page/reader-page.component';
 import { GraphPageComponent } from './pages/graph-page/graph-page.component';
 import { SigninPageComponent } from './pages/signin-page/signin-page.component';
 import { SignupPageComponent } from './pages/signup-page/signup-page.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: 'sign-in', component: SigninPageComponent },
   { path: 'sign-up', component: SignupPageComponent },
-  { path: '', component: CardsPageComponent },
-  { path: 'words', component: GraphPageComponent },
-  { path: 'library', component: LibraryPageComponent },
-  { path: 'book/:id', component: BookPageComponent },
-  { path: 'book/:id/reader', component: ReaderPageComponent },
+  { path: '', component: CardsPageComponent, canActivate: [AuthGuard] },
+  { path: 'words', component: GraphPageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'library',
+    component: LibraryPageComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: 'book/:id', component: BookPageComponent, canActivate: [AuthGuard] },
+  {
+    path: 'book/:id/reader',
+    component: ReaderPageComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
