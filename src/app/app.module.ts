@@ -22,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ReaderTextComponent } from './components/reader-text/reader-text.component';
 import { ReaderWordComponent } from './components/reader-word/reader-word.component';
 import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
-import { GraphPageComponent } from './pages/graph-page/graph-page.component';
+import { CoursePageComponent } from './pages/course-page/course-page.component';
+import { MessangerPageComponent } from './pages/messanger-page/messanger-page.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { GraphPageComponent } from './pages/graph-page/graph-page.component';
     ReaderTextComponent,
     ReaderWordComponent,
     FeatureFilterPipe,
-    GraphPageComponent,
+    CoursePageComponent,
+    MessangerPageComponent,
   ],
   imports: [
     BrowserModule,

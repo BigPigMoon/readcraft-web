@@ -6,6 +6,7 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup-page',
@@ -15,7 +16,10 @@ import {
 export class SignupPageComponent {
   regForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private readonly authService: AuthService
+  ) {}
 
   allFieldsRequiredValidator(group: FormGroup): ValidationErrors | null {
     const isInvalid = Object.keys(group.controls).some((controlName) => {
@@ -41,7 +45,11 @@ export class SignupPageComponent {
     );
   }
 
-  onLogin() {
-    console.log(this.regForm.value);
+  async onSubmit() {
+    // const req = new RegisterRequest();
+    // req.setEmail(this.regForm.value.email);
+    // req.setUsername(this.regForm.value.name);
+    // req.setPassword(this.regForm.value.password);
+    // await this.authService.register(req);
   }
 }

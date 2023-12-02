@@ -10,7 +10,7 @@
                 </div>
             </div>
             <div class="card-body">
-                <form class="w-full px-8 space-y-4" (ngSubmit)="onLogin()" [formGroup]="regForm">
+                <form class="w-full px-8 space-y-4" (ngSubmit)="onSubmit()" [formGroup]="regForm">
                     <div class="form-control">
                         <input type="text" placeholder="Имя" class="input input-bordered" required
                             formControlName="name" />
