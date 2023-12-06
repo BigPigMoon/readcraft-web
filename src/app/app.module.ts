@@ -24,6 +24,10 @@ import { ReaderWordComponent } from './components/reader-word/reader-word.compon
 import { FeatureFilterPipe } from './pipes/feature-filter.pipe';
 import { CoursePageComponent } from './pages/course-page/course-page.component';
 import { MessangerPageComponent } from './pages/messanger-page/messanger-page.component';
+import { CourseCardComponent } from './components/course/course-card/course-card.component';
+import { CourseLineComponent } from './components/course/course-line/course-line.component';
+import { GrpcCoreModule } from '@ngx-grpc/core';
+import { GrpcWebClientModule } from '@ngx-grpc/grpc-web-client';
 
 @NgModule({
   declarations: [
@@ -46,6 +50,8 @@ import { MessangerPageComponent } from './pages/messanger-page/messanger-page.co
     FeatureFilterPipe,
     CoursePageComponent,
     MessangerPageComponent,
+    CourseCardComponent,
+    CourseLineComponent
   ],
   imports: [
     BrowserModule,
@@ -54,8 +60,15 @@ import { MessangerPageComponent } from './pages/messanger-page/messanger-page.co
     NgOptimizedImage,
     FormsModule,
     ReactiveFormsModule,
+    GrpcCoreModule.forRoot(),
+    GrpcWebClientModule.forRoot({
+      settings: {
+        host: 'http://localhost:5000',
+        withCredentials: true
+      }
+    })
   ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {}

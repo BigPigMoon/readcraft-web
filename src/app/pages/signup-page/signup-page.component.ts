@@ -4,14 +4,14 @@ import {
   FormControl,
   FormGroup,
   ValidationErrors,
-  Validators,
+  Validators
 } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-signup-page',
   templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.scss'],
+  styleUrls: ['./signup-page.component.scss']
 })
 export class SignupPageComponent {
   regForm: FormGroup;
@@ -22,7 +22,7 @@ export class SignupPageComponent {
   ) {}
 
   allFieldsRequiredValidator(group: FormGroup): ValidationErrors | null {
-    const isInvalid = Object.keys(group.controls).some((controlName) => {
+    const isInvalid = Object.keys(group.controls).some(controlName => {
       const control = group.get(controlName);
       return control && control.value === '';
     });
@@ -35,21 +35,15 @@ export class SignupPageComponent {
       {
         name: new FormControl('', [
           Validators.required,
-          Validators.minLength(4),
+          Validators.minLength(4)
         ]),
         email: new FormControl('', [Validators.required]),
         password: new FormControl('', [Validators.required]),
-        passwordRep: new FormControl('', [Validators.required]),
+        passwordRep: new FormControl('', [Validators.required])
       },
       { validator: this.allFieldsRequiredValidator }
     );
   }
 
-  async onSubmit() {
-    // const req = new RegisterRequest();
-    // req.setEmail(this.regForm.value.email);
-    // req.setUsername(this.regForm.value.name);
-    // req.setPassword(this.regForm.value.password);
-    // await this.authService.register(req);
-  }
+  async onSubmit() {}
 }

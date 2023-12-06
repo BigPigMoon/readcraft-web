@@ -1,3 +1,29 @@
 <app-navigation-wrapper>
-    <p>course-page works!</p>
+    <div class="flex justify-between">
+        <div class="w-fit">
+            <span class="font-bold ml-6">Курс на котором вы остановились</span>
+            <div class="card bg-neutral w-fit m-4">
+                <div class="card-body">
+                    <p class="card-title">Времена в английском языке</p>
+                    <p class="text-sm">Курс от Read Craft</p>
+                    <div class="card-actions justify-end">
+                        <button class="btn btn-primary">Продолжить</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-96 flex flex-col">
+            <div class="pr-12 mb-4 font-bold flex w-full justify-end">
+                Язык курса
+            </div>
+            <select class="select select-bordered w-full max-w-xs">
+                <option selected>Английский</option>
+                <option>Польский</option>
+                <option>Китайский</option>
+                <option>Немецкий</option>
+            </select>
+        </div>
+    </div>
+    <app-course-line courseTitle="Курс от Read Craft"></app-course-line>
+    <app-course-line [author]="true" courseTitle="Курс от пользователя Ivanov"></app-course-line>
 </app-navigation-wrapper>

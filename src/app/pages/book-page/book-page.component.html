@@ -2,30 +2,25 @@
   <div class="flex w-full h-full justify-center">
     <div class="card xl:card-side max-w-fit xl:max-w-full justify-stretch shadow-md h-full w-full bg-base-200">
       <figure>
-        <img
-          class="xl:h-full w-fit"
-          [ngSrc]="book.cover"
-          width="800"
-          height="800"
-          alt="witcher"/>
+        <img class="xl:h-full w-fit" [ngSrc]="book.cover" width="800" height="800" alt="witcher" />
       </figure>
       <div class="card-body w-fit">
-        <h2 class="card-title">{{book.author}}, {{book.title}}</h2>
+        <h2 class="card-title font-bold text-2xl">{{book.author}}, {{book.title}}</h2>
         <div class="h-full">
           <div class="stats w-full">
             <div class="stat">
               <div class="stat-title">Знакомых слов</div>
-              <div class="stat-value text-success">40%</div>
+              <div class="stat-value">40%</div>
               <div class="stat-desc">Слов: 343</div>
             </div>
             <div class="stat">
               <div class="stat-title">Знакомых слов</div>
-              <div class="stat-value text-success">40%</div>
+              <div class="stat-value">40%</div>
               <div class="stat-desc">Слов: 343</div>
             </div>
             <div class="stat">
               <div class="stat-title">Знакомых слов</div>
-              <div class="stat-value text-success">40%</div>
+              <div class="stat-value">40%</div>
               <div class="stat-desc">Слов: 343</div>
             </div>
           </div>
@@ -37,4 +32,3 @@
     </div>
   </div>
 </app-navigation-wrapper>
-

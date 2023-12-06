@@ -1,17 +1,13 @@
-<a class="group hover:cursor-pointer bg-base-200 card w-72 shadow-md m-4" routerLink="/book/1">
+<a class="group hover:cursor-pointer bg-neutral card w-72 m-4" routerLink="/book/1">
   <figure class="rounded-xl m-3 mb-0">
-    <img
-      [ngSrc]="book.cover"
-      width="400"
-      height="600"
-      alt="witcher"/>
+    <img [ngSrc]="book.cover" width="400" height="600" alt="witcher" />
   </figure>
   <div class="card-body mt-0">
-    <h2 class="card-title group-hover:text-primary">{{book.title}}</h2>
-    <p>{{book.author}}</p>
+    <h2 class="card-title group-hover:text-primary text-base-content">{{book.title}}</h2>
+    <p class="text-base-content">{{book.author}}</p>
     <div class="flex w-full items-center space-x-3">
-      <progress class="progress progress-success flex-grow" [value]="book.progress" max="100"></progress>
-      <span class="text-success">{{book.progress}}%</span>
+      <progress class="progress progress-secondary flex-grow" [value]="book.progress" max="100"></progress>
+      <span class="text-base-content font-semibold">{{book.progress}}%</span>
     </div>
   </div>
 </a>
